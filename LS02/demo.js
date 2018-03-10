@@ -75,3 +75,25 @@ console.log(obj1,obj2);
 // VM412:4 {a: 2} {a: 2}
 // VM412:6 {a: 2} {a: 3}
 // undefined
+var obj_a = {value:1};
+function fn_a(arg){
+    arg.value=3;
+};
+fn_a(obj_a);
+console.log(obj_a);
+
+function fn_b(arg){
+    arg={value:2};//创建了一个新的对象，arg指向新对象
+};
+fn_b(obj_a);
+console.log(obj_a);
+//VM472:6 {value: 3}
+//VM472:12 {value: 3}
+var obj_a = {value:1};
+function fn_a(arg){
+	arg={value:2};
+    arg.value=3;
+};
+fn_a(obj_a);
+console.log(obj_a);
+//VM468:7 {value: 1}
