@@ -7,9 +7,11 @@ console.log(d); // "l"
 console.log(e); // "o"
 
 //类似数组的对象都有一个length属性，因此还可以对这个属性解构赋值。
-let {length : len} = 'hello';
-console.log(len); // 5
+let {length:len}='abcdefg';
+console.log(len);// 7
 
+let {length:ln}=[2,3,4,5,6,1];
+console.log(ln);// 6
 
 //解构赋值时，如果等号右边是数值和布尔值，则会先转为对象。
 let {toString: s1} = 123;

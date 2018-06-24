@@ -68,20 +68,21 @@ p2.showMe();
 // Mike 20
 //Lucy 23
 
-//私有属性 闭包  ???
+//私有属性 闭包  之前报错是因为未定义私有属性namePrivate,agePrivate
 var  Person =function(name,age){
-	namePrivate=name;
-	agePrivate=age;
+	var namePrivate = name;
+   	var agePrivate = age;
 	showMe=function(){
-		console.log(namenamePrivate,agePrivate);
+		console.log(namePrivate,agePrivate);
 	}	
 }
 var p1=new Person('Mike',20);
 var p2=new Person('Lucy',23);
-showMe();
-//p2.showMe();
+console.log(p1.showMe());//Mike 20
+console.log(p2.showMe());//Lucy 23
 
 //间接调用this(call,apply)
+////////例一
 objA={name:'aa',x:1};
 objB={name:'bb',x:2};
 function Test(){
@@ -92,6 +93,27 @@ objA.fun();
 objA.fun.call(objB);//call吸星大法
 // aa 1
 // bb 2
+/////////例二
+var add=(m,n)=>m+n;
+var sub=(m,n)=>m>n?m-n:n-m;
+console.log(add(3,4));//7
+console.log(sub(6,2));//4
+add.call(sub,5,6);//11    //sub调用add的方法
+sub.apply(add,[7,9]);//2  //add调用sub的方法
+/////////例三 继承
+var bird = {
+    name:"polly",
+    fly:function(m,n){
+        console.log("i'm:"+this.name+" i can fly ___",m,n);
+    }
+};
+
+var me = {
+    name:"QL"
+};
+console.log(bird.fly(5,6));//i'm:polly i can fly ___ 5 6
+console.log(bird.fly.call(me,7,8));//i'm:QL i can fly ___ 7 8
+
 //回顾 call是在Function.protoperty上的方法
 function f1(){}
 f1.hasOwnProperty('call');

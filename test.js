@@ -89,3 +89,23 @@ function foo(y){
 foo(x);
 console.log(x[0]);
 // 2
+
+////////////////////////////////////////////////////////////
+//期末复习倒序
+//LS30
+1.toString() 
+方法可把一个逻辑值转换为字符串，并返回结果。
+根据原始布尔值或者 booleanObject 对象的值返回字符串 "true" 或 "false"。
+如果调用该方法的对象不是 Boolean，则抛出异常 TypeError。数值和布尔值的包装对象都有toString属性
+2.map() 
+把每个元素通过函数传递到当前匹配集合中，生成包含返回值的新的 jQuery 对象。
+语法.map(callback(index,domElement))
+参数callback(index,domElement)  描述对当前集合中的每个元素调用的函数对象。
+详细说明:由于返回值是 jQuery 封装的数组，使用 get() 来处理返回的对象以得到基础的数组。
+.map() 方法对于获得或设置元素集的值特别有用。
+3.call()和apply()
+https://www.cnblogs.com/lengyuehuahun/p/5643625.html
+
+2018/6/23
+模糊知识点：
+字符和数字之间的拼接，运算
